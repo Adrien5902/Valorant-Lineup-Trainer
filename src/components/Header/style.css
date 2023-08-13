@@ -1,0 +1,27 @@
+header{
+    background: var(--red1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 1.5em;
+    font-size: clamp(2vw, 5vh, 5vw);
+    padding-left: .25em;
+}
+
+.app-title{
+    font-family: "Valorant";
+    padding-top: .2em;
+    text-align: left;
+}
+
+header a{
+    background: var(--red2);
+    border-radius: 0;
+    height: inherit;
+    padding: 0 0.2em;
+    box-shadow: inset 0 0 25px var(--red3);
+    -webkit-line-clamp: 1;
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+}

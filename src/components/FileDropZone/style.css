@@ -1,0 +1,14 @@
+.file-dropzone{
+    font-size: .8em;
+    width: clamp(1em, 80vw, 10em);
+    height: clamp(1em, 80vh, 10em);
+    border: var(--red1) dashed .2em;
+    border-radius: 1em;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    background: var(--darkblue);
+    margin: .8em;
+    font-weight: bold;
+    justify-content: center;
+}

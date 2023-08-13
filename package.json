@@ -1,0 +1,42 @@
+{
+    "name": "valorant-lineup-trainer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "concurrently \"vite\" \"nodemon --watch index.js --exec electron-forge start\"",
+        "build": "vite build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Adrien5902/Valorant-Lineup-Trainer.git"
+    },
+    "keywords": [
+        "Valorant",
+        "Lineup"
+    ],
+    "author": "Adrien5902",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Adrien5902/Valorant-Lineup-Trainer/issues"
+    },
+    "homepage": "https://github.com/Adrien5902/Valorant-Lineup-Trainer#readme",
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
+        "@fortawesome/free-solid-svg-icons": "^6.4.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "babel-plugin-macros": "^3.1.0",
+        "electron": "^25.3.2",
+        "electron-is-dev": "^2.0.0",
+        "nodemon": "^3.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-dropzone": "^14.2.3",
+        "react-router-dom": "^6.14.2",
+        "vite": "^4.4.8"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^6.2.1",
+        "electron": "^25.3.2"
+    }
+}
