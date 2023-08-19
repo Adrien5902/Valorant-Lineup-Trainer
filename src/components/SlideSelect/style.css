@@ -1,0 +1,30 @@
+.slider-select{
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    font-size: 1.15em;
+    border-radius: .2em;
+}
+
+.slider-select-button{
+    padding: .2em;
+    background-color: var(--gray2);
+    cursor: pointer;
+
+    &:hover:not([select="true"]){
+        filter: brightness(1.1);
+    }
+}
+
+.slider-select-button-text{
+    position: relative;
+    z-index: 3;
+}
+
+.slider-select-slider{
+    transition: all 300ms ease;
+    background: var(--red1);
+    position: absolute;
+    border-radius: .2em;
+    z-index: 2;
+}

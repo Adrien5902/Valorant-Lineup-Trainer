@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faListUl, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faListUl, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
 
-export function Header({ }) {
+export function Header({ lang }) {
     return (
         <header>
             <span className='app-title'>Valorant Lineup Trainer</span>
@@ -16,13 +16,19 @@ export function Header({ }) {
                     to='/list'
                     className={useLocation().pathname == "" ? "selected" : ""}
                 >
-                    <span><FontAwesomeIcon icon={faListUl}/> Lineups</span>
+                    <span><FontAwesomeIcon icon={faListUl}/> {lang("header.lineups")}</span>
                 </Link>
                 <Link
                     to='/upload'
                     className={useLocation().pathname == "" ? "selected" : ""}
                 >
-                    <span><FontAwesomeIcon icon={faPlus}/> Upload Video</span>
+                    <span><FontAwesomeIcon icon={faPlus}/> {lang("header.uploadVideo")}</span>
+                </Link>
+                <Link
+                    to='/settings'
+                    className={useLocation().pathname == "" ? "selected" : ""}
+                >
+                    <span><FontAwesomeIcon icon={faGear}/> {lang("header.settings")}</span>
                 </Link>
             </div>
         </header>

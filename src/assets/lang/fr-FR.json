@@ -1,0 +1,24 @@
+{
+    "settings": {
+        "lang": "Langue"
+    },
+    "header": {
+        "settings": "Paramètres",
+        "lineups": "Lineups",
+        "uploadVideo": "Ajouter une vidéo"
+    },
+    "lineupList": {
+        "filter": {
+            "search": "Recherche",
+            "allMaps": "Toutes les maps",
+            "allAgents": "Tous les agents",
+            "bothSides": "Les deux"
+        }
+    },
+    "valorant":{
+        "sides":{
+            "attack": "Attaque",
+            "defense": "Défense"
+        }
+    }
+}
