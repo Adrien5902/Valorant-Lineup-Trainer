@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faListUl, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faGear, faListUl, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
 
 export function Header({ lang }) {
@@ -17,6 +17,12 @@ export function Header({ lang }) {
                     className={useLocation().pathname == "" ? "selected" : ""}
                 >
                     <span><FontAwesomeIcon icon={faListUl}/> {lang("header.lineups")}</span>
+                </Link>
+                <Link
+                    to='/learn'
+                    className={useLocation().pathname == "" ? "selected" : ""}
+                >
+                    <span><FontAwesomeIcon icon={faBook} /> {lang("header.learn")}</span>
                 </Link>
                 <Link
                     to='/upload'

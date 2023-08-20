@@ -5,7 +5,8 @@
     "header": {
         "settings": "Settings",
         "lineups": "Lineups",
-        "uploadVideo": "Upload video"
+        "uploadVideo": "Upload video",
+        "learn": "Learn"
     },
     "lineupList": {
         "filter": {
@@ -20,5 +21,6 @@
             "attack": "Attack",
             "defense": "Defense"
         }
-    }
+    },
+    "fileDropzone": "Drag and drop files here, or click to select files"
 }

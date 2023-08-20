@@ -7,6 +7,8 @@ import Loading from '../Loading';
 import Lineups from '../Lineups';
 import Settings from '../Settings';
 
+const {ipcRenderer} = window.require("electron")
+
 import langfrFR from '/assets/lang/fr-FR.json';
 import langenUS from '/assets/lang/en-US.json';
 
@@ -69,15 +71,38 @@ function fetchDataObject(requests) {
     return fetchData();
 }
 
+const defaultSettings = {
+    lang: "fr-FR"
+}
+
 function App({}) {
+    const [settings, setSettings] = useState(defaultSettings)
+    /**
+     * @param {string} setting 
+     * @param {any} value 
+     */
+    function changeSetting(setting, value){
+        let temp = JSON.parse(JSON.stringify(settings))
+        temp[setting] = value
+        setSettings(temp)
+        ipcRenderer.sendSync("saveSettings", temp)
+    }
+
     const [data, setData] = useState({})
-    const [langID, setLang] = useState("fr-FR")
-    const locale = langs.find(({id}) => id == langID).data
+    const [valorantStatus, setValorantStatus] = useState(null)
+    const locale = langs.find(({id}) => id == settings.lang).data
     function lang(path){
         return Object.byString(locale, path)
     }
 
+    ipcRenderer.on("valorantStatus", (e, status) => {
+        if(status != valorantStatus) setValorantStatus(status)
+    })
+
     useEffect(()=>{
+        const sett = ipcRenderer.sendSync("readSettings")
+        setSettings(sett ?? defaultSettings)
+
         const requests = {
             agents: "https://valorant-api.com/v1/agents?isPlayableCharacter=true&lang="+lang,
             maps: "https://valorant-api.com/v1/maps?lang="+lang
@@ -102,7 +127,7 @@ function App({}) {
                     <Route path='/index.html' element={<Navigate to={"/list"}/>}/>
                     <Route path='/list' element={<Lineups lang={lang} agents={data.agents.data} maps={data.maps.data}/>}/>
                     <Route path='/upload' element={<UpdloadVideo lang={lang}/>}/>
-                    <Route path='/settings' element={<Settings langs={langs} setLang={setLang} lang={lang} langID={langID}/>}/>
+                    <Route path='/settings' element={<Settings settings={settings} changeSetting={changeSetting} langs={langs} lang={lang}/>}/>
                 </Routes>
             </div>
             </>

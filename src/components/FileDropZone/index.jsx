@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './style.css'
 
-const FileDropzone = ({ onFileDrop, acceptedFileTypes }) => {
+const FileDropzone = ({ onFileDrop, acceptedFileTypes, lang }) => {
     const [selectedFile, setSelectedFile] = useState(null)
 
     const onDrop = (acceptedFiles) => {
@@ -21,7 +21,7 @@ const FileDropzone = ({ onFileDrop, acceptedFileTypes }) => {
     return (
         <div {...getRootProps()} className="file-dropzone">
             <input {...getInputProps()} />
-            <p>{selectedFile ? selectedFile : "Drag and drop files here, or click to select files"}</p>
+            <p>{selectedFile ? selectedFile : lang("fileDropzone")}</p>
         </div>
     );
 };

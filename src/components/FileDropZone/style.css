@@ -11,4 +11,9 @@
     margin: .8em;
     font-weight: bold;
     justify-content: center;
+
+    > p {
+        max-width: 80%;
+        max-height: 80%;
+    }
 }

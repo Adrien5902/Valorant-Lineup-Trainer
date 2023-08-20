@@ -1,7 +1,7 @@
 import React from 'react';
 import FileDropzone from '../FileDropZone';
 
-function UpdloadVideo({ }) {
+function UpdloadVideo({ lang }) {
     return (
         <div>
             <FileDropzone
@@ -11,6 +11,7 @@ function UpdloadVideo({ }) {
                 onFileDrop={(file)=>{
                     console.log(file)
                 }}
+                lang={lang}
             ></FileDropzone>
         </div>
     );

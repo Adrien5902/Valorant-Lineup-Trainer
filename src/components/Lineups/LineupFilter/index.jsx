@@ -14,7 +14,7 @@ import SlideSelect from '../../SlideSelect';
  * @returns 
  */
 
-export function LineupFilter({ maps, agents, search, lang}) {
+export function LineupFilter({ maps, search, lang}) {
     maps = maps.sort((a, b) => {
         if (a.displayName < b.displayName) {
             return -1;
@@ -29,13 +29,6 @@ export function LineupFilter({ maps, agents, search, lang}) {
         <img draggable={false} src={map.listViewIcon} alt="" />
         <span>{map.displayName}</span>
     </div>))
-    mapsOptions.unshift(<span>{lang("lineupList.filter.allMaps")}</span>)
-
-    let agentsOptions = agents.map((agent, i) => (<div className='agent-select' key={i}>
-        <img draggable={false} src={agent.displayIcon} alt="" />
-        <span>{agent.displayName}</span>
-    </div>))
-    agentsOptions.unshift(<span>{lang("lineupList.filter.allAgents")}</span>)
 
     return (
         <div id='lineups-filter'>
@@ -47,12 +40,6 @@ export function LineupFilter({ maps, agents, search, lang}) {
             <CustomSelect 
                 id="map-filter"
                 options={mapsOptions}
-                hover="zoom"
-            />
-            
-            <CustomSelect 
-                id="agents-filter"
-                options={agentsOptions}
                 hover="zoom"
             />
             
