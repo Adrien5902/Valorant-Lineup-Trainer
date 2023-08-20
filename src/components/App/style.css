@@ -79,7 +79,7 @@ input{
 #content{
     overflow: auto;
     text-align: center;
-    height: calc(100vh - var(--header-height));
+    height: calc(100vh - var(--header-height) - 1em);
     top: var(--header-height);
     position: relative;
     padding: .5em;

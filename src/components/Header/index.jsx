@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faGear, faListUl, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation } from 'react-router-dom';
 
 export function Header({ lang }) {
+    useEffect(() => {
+        const appTitleContainer = document.getElementById('app-title-container');
+        const appTitle = document.getElementById('app-title');
+        const appTitleReduced = document.getElementById('app-title-reduced');
+    
+        function checkOverflow() {
+            console.log(appTitle.offsetWidth > appTitleContainer.offsetWidth)
+            if (appTitle.offsetWidth > appTitleContainer.offsetWidth) {
+                appTitleReduced.style.visibility = "visible"
+                appTitle.style.visibility = "hidden"
+            } else {
+                appTitleReduced.style.visibility = "hidden"
+                appTitle.style.visibility = "visible"
+            }
+        }
+    
+        window.addEventListener('resize', checkOverflow);
+        checkOverflow();
+  
+        return () => {
+            window.removeEventListener('resize', checkOverflow);
+        };
+    }, []);
+
     return (
         <header>
-            <span className='app-title'>Valorant Lineup Trainer</span>
+            <div id='app-title-container'>
+                <span id='app-title'>Valorant Lineup Trainer</span>
+                <span id='app-title-reduced'>VLT</span>
+            </div>
             <div style={{
                 display: "flex",
                 height: "inherit",

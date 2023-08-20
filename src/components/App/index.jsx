@@ -125,9 +125,27 @@ function App({}) {
             <div id='content'>
                 <Routes>
                     <Route path='/index.html' element={<Navigate to={"/list"}/>}/>
-                    <Route path='/list' element={<Lineups lang={lang} agents={data.agents.data} maps={data.maps.data}/>}/>
+                    <Route 
+                        path='/list' 
+                        element={<Lineups 
+                            lang={lang} 
+                            agents={data.agents.data} 
+                            maps={data.maps.data}
+                            settings={settings}
+                        />}
+                    />
                     <Route path='/upload' element={<UpdloadVideo lang={lang}/>}/>
-                    <Route path='/settings' element={<Settings settings={settings} changeSetting={changeSetting} langs={langs} lang={lang}/>}/>
+                    <Route 
+                        path='/settings' 
+                        element={<Settings
+                            maps={data.maps.data}
+                            agents={data.agents.data} 
+                            settings={settings} 
+                            changeSetting={changeSetting} 
+                            langs={langs} 
+                            lang={lang}
+                        />}
+                    />
                 </Routes>
             </div>
             </>

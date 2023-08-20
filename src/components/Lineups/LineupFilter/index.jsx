@@ -2,8 +2,9 @@ import React from 'react';
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import CustomSelect from '../../CustomSelect';
 import SlideSelect from '../../SlideSelect';
+import AgentsSelect from '../../CustomSelect/Agents';
+import MapsSelect from '../../CustomSelect/Maps';
 
 /**
  * 
@@ -14,22 +15,7 @@ import SlideSelect from '../../SlideSelect';
  * @returns 
  */
 
-export function LineupFilter({ maps, search, lang}) {
-    maps = maps.sort((a, b) => {
-        if (a.displayName < b.displayName) {
-            return -1;
-        }
-        if (a.displayName > b.displayName) {
-            return 1;
-        }
-        return 0;
-    })
-
-    let mapsOptions = maps.map((map, i) => (<div className='map-select' key={i}>
-        <img draggable={false} src={map.listViewIcon} alt="" />
-        <span>{map.displayName}</span>
-    </div>))
-
+export function LineupFilter({ agents, maps, search, lang, settings }) {
     return (
         <div id='lineups-filter'>
             <div id='lineups-filter-search'>
@@ -37,11 +23,8 @@ export function LineupFilter({ maps, search, lang}) {
                 <input placeholder={lang("lineupList.filter.search")+'...'} type="text" id="lineups-filter-search-input" onChange={e => search(e.target.value)}/>
             </div>
             
-            <CustomSelect 
-                id="map-filter"
-                options={mapsOptions}
-                hover="zoom"
-            />
+            <MapsSelect maps={maps} id="map-filter" defaultId={settings.preferences?.map}/>
+            <AgentsSelect id="agent-filter" agents={agents} defaultId={settings.preferences?.agent}/>
             
             <SlideSelect 
                 id="side-select"

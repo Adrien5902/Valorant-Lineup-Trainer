@@ -1,6 +1,11 @@
 .custom-select{
     position: relative;
     background: var(--gray2);
+    display: inline-flex;
+    padding: .3em;
+    height: 100%;
+    border-radius: .2em;
+    margin: 0.2em;
 
     &[dropped="true"]{
         & .custom-select-main svg{
@@ -43,6 +48,7 @@
     overflow: hidden;
     transition: max-height 300ms ease;
     left: 0;
+    top: calc(100% - 0.3em);
     border-bottom-left-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
 }

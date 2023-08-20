@@ -1,6 +1,7 @@
 {
     "settings": {
-        "lang": "Langue"
+        "lang": "Langue",
+        "preferences": "Préférences"
     },
     "header": {
         "settings": "Paramètres",
@@ -20,7 +21,9 @@
         "sides":{
             "attack": "Attaque",
             "defense": "Défense"
-        }
+        },
+        "agent":"Agent",
+        "map": "Map"
     },
     "fileDropzone": "Glissez et déposez un fichier ici ou sélectionner en un en cliquant ici"
 }

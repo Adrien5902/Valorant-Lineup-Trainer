@@ -1,0 +1,25 @@
+
+
+.map-select{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2em;
+    border: 1px white solid;
+    overflow: hidden;
+    width: fit-content;
+
+    & span {
+        position: absolute;
+        text-shadow: 0 0 20px var(--darkblue);
+    }
+
+    & img {
+        height: 1.5em;
+    }
+}
+
+:has(.map-select) > .custom-select-main{
+    width: 7em;
+}

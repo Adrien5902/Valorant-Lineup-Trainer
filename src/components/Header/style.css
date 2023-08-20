@@ -12,10 +12,22 @@ header{
     width: -webkit-fill-available;
 }
 
-.app-title{
-    font-family: "Valorant";
-    padding-top: .2em;
-    text-align: left;
+#app-title-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 0.6em;
+
+    > * {
+        position: absolute;
+        font-family: "Valorant";
+        display: flex;
+        overflow: visible;
+        white-space: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
 }
 
 header a{

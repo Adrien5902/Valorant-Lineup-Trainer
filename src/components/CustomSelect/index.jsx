@@ -3,8 +3,9 @@ import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function CustomSelect({options, onChange, hover, id}) {
-    const [optionIndex, setOptionIndex] = useState(0)
+function CustomSelect({options, onChange, hover, id, defaultIndex = 0}) {
+    if(defaultIndex < 0) defaultIndex = 0
+    const [optionIndex, setOptionIndex] = useState(defaultIndex)
     const [dropped, setDropped] = useState(false)
 
     return ( 
